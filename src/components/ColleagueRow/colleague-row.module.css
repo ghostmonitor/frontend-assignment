@@ -7,11 +7,11 @@
     border-bottom: 1px solid #ccc;
 }
 
+.colleagueRow button:not(:last-child) {
+  margin-right: 10px;
+}
+
 .colleague {
   margin: 0;
   font-weight: 500;
-}
-
-.colleagueRow button:not(:last-child) {
-  margin-right: 10px;
 }

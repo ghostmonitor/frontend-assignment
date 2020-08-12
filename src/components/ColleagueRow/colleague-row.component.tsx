@@ -30,7 +30,7 @@ export const ColleagueRow: React.FC<ColleagueProps> = (props) => {
       <div className={cn("row justify-content-between", styles.colleagueRow)}>
         <p className={styles.colleague}>{colleague.name}</p>
         <div>
-        <button
+          <button
             type="button"
             className="btn btn-light"
             onClick={handleFavorite}
