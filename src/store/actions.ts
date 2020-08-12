@@ -3,7 +3,7 @@ import { Colleague } from './types/colleague.type'
 
 export const CREATE_COLLEAGUE = 'CREATE_COLLEAGUE'
 export const REMOVE_COLLEAGUE = 'REMOVE_COLLEAGUE'
-export const FAVOURITE_COLLEAGUE = 'FAVOURITE_COLLEAGUE'
+export const FAVORITE_COLLEAGUE = 'FAVOURITE_COLLEAGUE'
 
 export interface CreateColleagueAction extends Action {
   type: string
@@ -29,16 +29,16 @@ export function removeColleague(colleagueIndex: number): RemoveColleagueAction {
   }
 }
 
-export interface FavouriteColleagueAction extends Action {
+export interface FavoriteColleagueAction extends Action {
   type: string
   colleagueIndex: number
-  favourite: boolean
+  favorite: boolean
 }
 
-export function favouriteColleague(colleagueIndex: number, favourite: boolean): FavouriteColleagueAction {
+export function favoriteColleague(colleagueIndex: number, favourite: boolean): FavoriteColleagueAction {
   return {
-    type: FAVOURITE_COLLEAGUE,
+    type: FAVORITE_COLLEAGUE,
     colleagueIndex,
-    favourite
+    favorite: favourite
   }
 }

@@ -1,10 +1,17 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
+.colleagueRow {
+  background-color: #fff;
+    height: 60px;
+    flex: 1;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #ccc;
 }
 
-.favourite {
-  color: green;
+.colleague {
+  margin: 0;
+  font-weight: 500;
 }
 
+.colleagueRow button:not(:last-child) {
+  margin-right: 10px;
+}
