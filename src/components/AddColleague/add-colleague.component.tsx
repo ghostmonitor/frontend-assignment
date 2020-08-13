@@ -1,7 +1,6 @@
 import React, { useState, ChangeEvent } from 'react'
 import { useDispatch } from 'react-redux'
 import { createColleague } from '../../store/actions'
-import styles from './add-colleague.module.css'
 
 export const AddColleague: React.FC = (props) => {
   const [name, setName] = useState('')
@@ -11,7 +10,7 @@ export const AddColleague: React.FC = (props) => {
     setName(event.target.value)
   }
 
-  function handleCreate() {
+  function handleAddColleague() {
     dispatch(createColleague({
       name,
       favorite: false
@@ -19,9 +18,11 @@ export const AddColleague: React.FC = (props) => {
   }
 
   return (
-    <div className={styles['container']}>
-      <input className={styles['input']} onChange={handleChange} />
-      <button className={styles['button']} onClick={handleCreate}>Create</button>
+    <div className="input-group shadow-sm">
+      <input type="text" className="form-control" onChange={handleChange} placeholder="Name" />
+      <div className="input-group-append">
+        <button type="button" className="btn btn-outline-secondary" onClick={handleAddColleague}>Add</button>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,13 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { CREATE_COLLEAGUE, CreateColleagueAction, RemoveColleagueAction, REMOVE_COLLEAGUE, FAVOURITE_COLLEAGUE, FavouriteColleagueAction } from '../actions'
+
+import {
+  CREATE_COLLEAGUE,
+  CreateColleagueAction,
+  RemoveColleagueAction,
+  REMOVE_COLLEAGUE,
+  FAVORITE_COLLEAGUE,
+  FavoriteColleagueAction
+} from '../actions'
 import { Colleague } from '../types/colleague.type'
 export type ColleaguesState = Colleague[]
 
@@ -33,7 +41,7 @@ export const colleaguesReducer = createReducer(initialState, {
   [REMOVE_COLLEAGUE]: (state: ColleaguesState, action: RemoveColleagueAction) => {
     state.splice(action.colleagueIndex, 1)
   },
-  [FAVOURITE_COLLEAGUE]: (state: ColleaguesState, action: FavouriteColleagueAction) => {
-    state[action.colleagueIndex].favorite = action.favourite
+  [FAVORITE_COLLEAGUE]: (state: ColleaguesState, action: FavoriteColleagueAction) => {
+    state[action.colleagueIndex].favorite = action.favorite
   }
 })
