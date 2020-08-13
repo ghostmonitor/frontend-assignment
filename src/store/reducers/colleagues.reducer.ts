@@ -1,14 +1,11 @@
-import { createReducer } from '@reduxjs/toolkit'
-
+import { Colleague } from '../types/colleague.type'
 import {
   CREATE_COLLEAGUE,
-  CreateColleagueAction,
-  RemoveColleagueAction,
   REMOVE_COLLEAGUE,
   FAVORITE_COLLEAGUE,
-  FavoriteColleagueAction
+  ColleagueActionTypes
 } from '../actions'
-import { Colleague } from '../types/colleague.type'
+
 export type ColleaguesState = Colleague[]
 
 const initialState: ColleaguesState = [
@@ -34,14 +31,24 @@ const initialState: ColleaguesState = [
   }
 ]
 
-export const colleaguesReducer = createReducer(initialState, {
-  [CREATE_COLLEAGUE]: (state: ColleaguesState, action: CreateColleagueAction) => {
-    state.push(action.colleague)
-  },
-  [REMOVE_COLLEAGUE]: (state: ColleaguesState, action: RemoveColleagueAction) => {
-    state.splice(action.colleagueIndex, 1)
-  },
-  [FAVORITE_COLLEAGUE]: (state: ColleaguesState, action: FavoriteColleagueAction) => {
-    state[action.colleagueIndex].favorite = action.favorite
+export function colleaguesReducer(state = initialState, action: ColleagueActionTypes) {
+  switch (action.type) {
+    case CREATE_COLLEAGUE:
+      return state.concat(action.colleague)
+    case REMOVE_COLLEAGUE:
+      return state.filter((_, index) => index !== action.colleagueIndex)
+    case FAVORITE_COLLEAGUE:
+      return state.map((colleague, index) => {
+        if (index === action.colleagueIndex) {
+          return {
+            ...colleague,
+            favorite: action.favorite
+          }
+        }
+
+        return colleague
+      })
+    default:
+      return state
   }
-})
+}

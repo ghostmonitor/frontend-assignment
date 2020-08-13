@@ -1,41 +1,42 @@
-import { Action } from 'redux'
 import { Colleague } from './types/colleague.type'
 
 export const CREATE_COLLEAGUE = 'CREATE_COLLEAGUE'
 export const REMOVE_COLLEAGUE = 'REMOVE_COLLEAGUE'
 export const FAVORITE_COLLEAGUE = 'FAVORITE_COLLEAGUE'
 
-export interface CreateColleagueAction extends Action {
-  type: string
+interface CreateColleagueAction {
+  type: typeof CREATE_COLLEAGUE
   colleague: Colleague
 }
 
-export function createColleague(colleague: Colleague): CreateColleagueAction {
+interface RemoveColleagueAction {
+  type: typeof REMOVE_COLLEAGUE
+  colleagueIndex: number
+}
+
+interface FavoriteColleagueAction {
+  type: typeof FAVORITE_COLLEAGUE
+  colleagueIndex: number
+  favorite: boolean
+}
+
+export type ColleagueActionTypes = CreateColleagueAction | RemoveColleagueAction | FavoriteColleagueAction
+
+export function createColleague(colleague: Colleague): ColleagueActionTypes {
   return {
     type: CREATE_COLLEAGUE,
     colleague
   }
 }
 
-export interface RemoveColleagueAction extends Action {
-  type: string
-  colleagueIndex: number
-}
-
-export function removeColleague(colleagueIndex: number): RemoveColleagueAction {
+export function removeColleague(colleagueIndex: number): ColleagueActionTypes {
   return {
     type: REMOVE_COLLEAGUE,
     colleagueIndex
   }
 }
 
-export interface FavoriteColleagueAction extends Action {
-  type: string
-  colleagueIndex: number
-  favorite: boolean
-}
-
-export function favoriteColleague(colleagueIndex: number, favorite: boolean): FavoriteColleagueAction {
+export function favoriteColleague(colleagueIndex: number, favorite: boolean): ColleagueActionTypes {
   return {
     type: FAVORITE_COLLEAGUE,
     colleagueIndex,
