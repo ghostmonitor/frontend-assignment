@@ -35,10 +35,10 @@ export interface FavoriteColleagueAction extends Action {
   favorite: boolean
 }
 
-export function favoriteColleague(colleagueIndex: number, favourite: boolean): FavoriteColleagueAction {
+export function favoriteColleague(colleagueIndex: number, favorite: boolean): FavoriteColleagueAction {
   return {
     type: FAVORITE_COLLEAGUE,
     colleagueIndex,
-    favorite: favourite
+    favorite
   }
 }
