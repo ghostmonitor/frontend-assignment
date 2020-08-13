@@ -7,7 +7,7 @@ export const ColleaguesList: React.FC = (props) => {
   const colleagues = useSelector((state: AppState) => state.colleagues)
 
   return (
-    <div>
+    <div className="container">
       {colleagues.map((colleague, index) => (
         <ColleagueRow
           key={index}

@@ -10,7 +10,7 @@ export const AddColleague: React.FC = (props) => {
     setName(event.target.value)
   }
 
-  function handleAddCollleague() {
+  function handleAddColleague() {
     dispatch(createColleague({
       name,
       favorite: false
@@ -21,7 +21,7 @@ export const AddColleague: React.FC = (props) => {
     <div className="input-group shadow-sm">
       <input type="text" className="form-control" onChange={handleChange} placeholder="Name" />
       <div className="input-group-append">
-        <button type="button" className="btn btn-outline-secondary" onClick={handleAddCollleague}>Add</button>
+        <button type="button" className="btn btn-outline-secondary" onClick={handleAddColleague}>Add</button>
       </div>
     </div>
   )

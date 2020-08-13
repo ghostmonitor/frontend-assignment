@@ -3,7 +3,7 @@ import { Colleague } from './types/colleague.type'
 
 export const CREATE_COLLEAGUE = 'CREATE_COLLEAGUE'
 export const REMOVE_COLLEAGUE = 'REMOVE_COLLEAGUE'
-export const FAVORITE_COLLEAGUE = 'FAVOURITE_COLLEAGUE'
+export const FAVORITE_COLLEAGUE = 'FAVORITE_COLLEAGUE'
 
 export interface CreateColleagueAction extends Action {
   type: string

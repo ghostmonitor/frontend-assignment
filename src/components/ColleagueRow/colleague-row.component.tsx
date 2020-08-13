@@ -26,27 +26,24 @@ export const ColleagueRow: React.FC<ColleagueProps> = (props) => {
   }
 
   return (
-    <div className='container'>
-      <div className={cn("row justify-content-between", styles.colleagueRow)}>
-        <p className={styles.colleague}>{colleague.name}</p>
-        <div>
-          <button
-            type="button"
-            className="btn btn-light"
-            onClick={handleFavorite}
-          >
-            {colleague.favorite ? <StarFillIcon /> : <StarIcon />}
-          </button>
-          <button
-            type="button"
-            className="btn btn-light"
-            onClick={handleDelete}
-          >
-            <TrashIcon />
-          </button>
-        </div>
+    <div className={cn("row justify-content-between", styles.colleagueRow)}>
+      <p className={styles.colleague}>{colleague.name}</p>
+      <div>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={handleFavorite}
+        >
+          {colleague.favorite ? <StarFillIcon /> : <StarIcon />}
+        </button>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={handleDelete}
+        >
+          <TrashIcon />
+        </button>
       </div>
-
     </div>
   )
 }
